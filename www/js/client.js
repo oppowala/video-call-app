@@ -1628,7 +1628,6 @@ function setScreenShareBtn() {
       toggleScreenSharing();
     });
   } else {
-    screenShareBtn.style.display = "none";
   }
 }
 
@@ -2378,13 +2377,11 @@ function toggleScreenSharing() {
 function setScreenSharingStatus(status) {
   screenShareBtn.className = status ? "fas fa-stop-circle" : "fas fa-desktop";
   // only for desktop
-  if (isMobileDevice) {
     tippy(screenShareBtn, {
       content: status ? "STOP screen sharing" : "START screen sharing",
       placement: "right-start",
     });
   }
-}
 
 /**
  * set myVideoStatus true
