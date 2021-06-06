@@ -1,10 +1,3 @@
-/*
- ██████ ██      ██ ███████ ███    ██ ████████ 
-██      ██      ██ ██      ████   ██    ██    
-██      ██      ██ █████   ██ ██  ██    ██    
-██      ██      ██ ██      ██  ██ ██    ██    
- ██████ ███████ ██ ███████ ██   ████    ██    
-*/
 
 "use strict"; // https://www.w3schools.com/js/js_strict.asp
 
@@ -1833,7 +1826,10 @@ function setMyHandBtn() {
  */
 function setMyWhiteboardBtn() {
   // not supported for mobile
-
+  if (isMobileDevice) {
+    whiteboardBtn.style.display = "none";
+    return;
+  }
 
   setupCanvas();
 
@@ -2382,10 +2378,12 @@ function toggleScreenSharing() {
 function setScreenSharingStatus(status) {
   screenShareBtn.className = status ? "fas fa-stop-circle" : "fas fa-desktop";
   // only for desktop
+  if (isMobileDevice) {
     tippy(screenShareBtn, {
       content: status ? "STOP screen sharing" : "START screen sharing",
       placement: "right-start",
     });
+  }
 }
 
 /**
